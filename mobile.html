@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Size Compare</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-mobile.css">
 </head>
 <body>
     <div class="header">
         <h1>City Size Comparison</h1>
-        <h3><a href="mobile.html">Mobile</a></h3>
+        <h3><a href="index.html">Desktop</a></h3>
     </div>
     <div class="content">
         <div class="threeParts">
@@ -17,42 +17,37 @@
                 <img src="Images/Amsterdam.png" alt="" id="left">
             </div>
             <div class="menu">
-                <h2>Menu</h2>
+                <h3>Left</h3>
+                <h4>Select:</h4>
+                <select name="sel-left" id="l-sel" onchange="set(this, 'left')">
+                </select>
+                <h4>Randomize from:</h4>
+                <button onclick="randomize('left', 1)">All</button>                  
                 <br>
-                <div class="box">
-                    <h3>Left</h3>
-                    <h4>Select:</h4>
-                    <select name="sel-left" id="l-sel" onchange="set(this, 'left')">
-                    </select>
-                    <h4>Randomize from:</h4>
-                    <button onclick="randomize('left', 1)">All</button>
-                    <br>
-                    <button onclick="randomize('left', 2)">Europe</button>
-                    <br>
-                    <button onclick="randomize('left', 3)">North America</button>
-                    <br><br>
-                    <h3 id="city-left">Amsterdam</h3>
-                    <h4 id="pop-left"></h4>
-                </div>
+                <button onclick="randomize('left', 2)">Europe</button>
                 <br>
-                <div class="box">
-                    <h3>Right</h3>
-                    <h4>Select:</h4>
-                    <select name="sel-left" id="r-sel" onchange="set(this, 'right')">
-                    </select>
-                    <h4>Randomize from:</h4>
-                    <button onclick="randomize('right', 1)">All</button>
-                    <br>
-                    <button onclick="randomize('right', 2)">Europe</button>
-                    <br>
-                    <button onclick="randomize('right', 3)">North America</button>
-                    <br><br>
-                    <h3 id="city-right">Atlanta</h3>
-                    <h4 id="pop-right"></h4>
-                </div>
+                <button onclick="randomize('left', 3)">North America</button>
+                <br><br>                    
+                <h3 id="city-left">Amsterdam</h3>
+                <h4 id="pop-left"></h4>
             </div>
             <div class="map">
                 <img src="Images/Atlanta.png" alt="" id="right">
+            </div>
+            <div class="menu">
+                <h3>Right</h3>
+                <h4>Select:</h4>
+                <select name="sel-left" id="r-sel" onchange="set(this, 'right')">
+                </select>
+                <h4>Randomize from:</h4>
+                <button onclick="randomize('right', 1)">All</button>                    
+                <br>
+                <button onclick="randomize('right', 2)">Europe</button>
+                <br>
+                <button onclick="randomize('right', 3)">North America</button>
+                <br><br>                    
+                <h3 id="city-right">Atlanta</h3>
+                <h4 id="pop-right"></h4>
             </div>
             
         </div>
