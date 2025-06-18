@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Size Compare</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="script" href="script.js">
 </head>
 <body>
     <div class="header">
@@ -57,40 +58,5 @@
             
         </div>
     </div>
-    <script>
-        const na = ["Atlanta", "Boston", "Chicago", "Dallas", "Denver", "El Paso", "Fort Worth", "Houston", "Los Angeles", "Miami", "New York", "Phoenix", "San Antonio", "San Francisco", "Washington"];
-        const eu = ["Amsterdam", "Athens(Αθήνα)", "Barcelona", "Belgrade(Београд)", "Berlin", "Bratislava", "Brussels", "Bucharest(București)", "Budapest", "Copenhagen(København)", "Dublin(Baile Átha Cliath)", "Helsinki", "Istanbul(İstanbul)", "Istanbul(İstanbul)", "Lisbon(Lisboa)", "Ljubljana", "London", "Madrid", "Oslo", "Paris", "Podgorica(Подгорица)", "Prague(Praha)", "Riga", "Rome", "Sarajevo", "Skopje(Скопје)", "Sofia(София)", "Stockholm", "Tallinn", "Tirana", "Vienna(Wien)", "Vilnius", "Warsaw(Warszawa)", "Zagreb", "Zürich"];
-        const all = na.concat(eu)
-
-        for (i = 0; i < all.length; i++) {
-            var opt = document.createElement("option");
-            opt.setAttribute("value", all.at(i));
-            opt.innerText = all.at(i);
-            document.getElementById("l-sel").appendChild(opt);
-            var opt = document.createElement("option");
-            opt.setAttribute("value", all.at(i));
-            opt.innerText = all.at(i);
-            document.getElementById("r-sel").appendChild(opt);
-        }
-        
-        function randomize(side, num) {
-            var city;
-            if (num == 1) {
-                city = all.at(Math.floor(Math.random() * (all.length)));
-            } else if (num == 2) {
-                city = eu.at(Math.floor(Math.random() * (eu.length)));
-            } else {
-                city = na.at(Math.floor(Math.random() * (na.length)));
-            }
-            document.getElementById(side).setAttribute("src", ("Images/" + city + ".png"));
-            document.getElementById("city-" + side).innerText = city
-        }
-        function set(sel_opt, side) {
-            var city = sel_opt.options[sel_opt.selectedIndex].value;
-            console.log(city);
-            document.getElementById(side).setAttribute("src", ("Images/" + city + ".png"));
-            document.getElementById("city-" + side).innerText = city;
-        }
-    </script>
 </body>
 </html>
