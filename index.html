@@ -1,160 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>City Size Compare</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="script" href="script.js">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="script" href="script.js" />
+  </head>
 
-<body>
+  <body>
     <div class="header">
-        <h1>City Size Comparison</h1>
-        <h3><a href="mobile.html">Mobile</a></h3>
+      <h1>City Size Comparison</h1>
+      <h3><a href="mobile.html">Mobile</a></h3>
     </div>
     <div class="content">
-        <div class="threeParts">
-            <div class="map">
-                <img src="Images/Amsterdam.jpg" alt="" id="left">
-            </div>
-            <div class="menu">
-                <h2>Menu</h2>
-                <br>
-                <div class="box">
-                    <h3>Left</h3>
-                    <h4>Select:</h4>
-                    <select name="sel-left" id="l-sel" onchange="set(this, 'left')">
-                    </select>
-                    <h4>Randomize from:</h4>
-                    <button onclick="randomize('left', 1)">All</button>
-                    <br>
-                    <button onclick="randomize('left', 2)">Europe</button>
-                    <br>
-                    <button onclick="randomize('left', 3)">North America</button>
-                    <br><br>
-                    <h3 id="city-left">Amsterdam</h3>
-                    <h4 id="pop-left"></h4>
-                </div>
-                <br>
-                <div class="box">
-                    <h3>Right</h3>
-                    <h4>Select:</h4>
-                    <select name="sel-left" id="r-sel" onchange="set(this, 'right')">
-                    </select>
-                    <h4>Randomize from:</h4>
-                    <button onclick="randomize('right', 1)">All</button>
-                    <br>
-                    <button onclick="randomize('right', 2)">Europe</button>
-                    <br>
-                    <button onclick="randomize('right', 3)">North America</button>
-                    <br><br>
-                    <h3 id="city-right">Atlanta</h3>
-                    <h4 id="pop-right"></h4>
-                </div>
-            </div>
-            <div class="map">
-                <img src="Images/Atlanta.jpg" alt="" id="right">
-            </div>
-
+      <div class="threeParts">
+        <div class="map">
+          <img src="Images/Amsterdam.jpg" alt="" id="left" />
         </div>
+        <div class="menu">
+          <h2>Menu</h2>
+          <br />
+          <div class="box">
+            <h3>Left</h3>
+            <h4>Select:</h4>
+            <select
+              name="sel-left"
+              id="l-sel"
+              onchange="set(this, 'left')"
+            ></select>
+            <h4>Randomize from:</h4>
+            <button onclick="randomize('left', 1)">All</button>
+            <br />
+            <button onclick="randomize('left', 2)">Europe</button>
+            <br />
+            <button onclick="randomize('left', 3)">North America</button>
+            <br /><br />
+            <h3 id="city-left">Amsterdam</h3>
+            <h4 id="pop-left">921.402</h4>
+          </div>
+          <br />
+          <div class="box">
+            <h3>Right</h3>
+            <h4>Select:</h4>
+            <select
+              name="sel-left"
+              id="r-sel"
+              onchange="set(this, 'right')"
+            ></select>
+            <h4>Randomize from:</h4>
+            <button onclick="randomize('right', 1)">All</button>
+            <br />
+            <button onclick="randomize('right', 2)">Europe</button>
+            <br />
+            <button onclick="randomize('right', 3)">North America</button>
+            <br /><br />
+            <h3 id="city-right">Atlanta</h3>
+            <h4 id="pop-right">510.823</h4>
+          </div>
+        </div>
+        <div class="map">
+          <img src="Images/Atlanta.jpg" alt="" id="right" />
+        </div>
+      </div>
     </div>
     <script>
-        const na = [
-            { "city": "Atlanta", "population": "6.144.000" },
-            { "city": "Boston", "population": "4.941.000" },
-            { "city": "Chicago", "population": "9.441.000" },
-            { "city": "Dallas", "population": "7.943.000" },
-            { "city": "Denver", "population": "3.000.000" },
-            { "city": "El Paso", "population": "1.050.000" },
-            { "city": "Fort Worth", "population": "7.943.000" },
-            { "city": "Houston", "population": "7.339.000" },
-            { "city": "Los Angeles", "population": "13.202.000" },
-            { "city": "Miami", "population": "6.091.000" },
-            { "city": "New York", "population": "19.617.000" },
-            { "city": "Phoenix", "population": "5.059.000" },
-            { "city": "San Antonio", "population": "2.650.000" },
-            { "city": "San Francisco", "population": "4.653.000" },
-            { "city": "Washington", "population": "6.385.000" }
-        ];
-        const eu = [
-            { "city": "Amsterdam", "population": "2.480.000" },
-            { "city": "Athens (Αθήνα)", "population": "3.830.000" },
-            { "city": "Barcelona", "population": "5.575.000" },
-            { "city": "Belgrade (Београд)", "population": "1.680.000" },
-            { "city": "Berlin", "population": "6.144.000" },
-            { "city": "Bratislava", "population": "660.000" },
-            { "city": "Brussels", "population": "2.110.000" },
-            { "city": "Bucharest (București)", "population": "2.500.000" },
-            { "city": "Budapest", "population": "3.000.000" },
-            { "city": "Copenhagen (København)", "population": "2.060.000" },
-            { "city": "Dublin (Baile Átha Cliath)", "population": "2.080.000" },
-            { "city": "Helsinki", "population": "1.550.000" },
-            { "city": "Istanbul (İstanbul)", "population": "15.704.000" },
-            { "city": "Kyiv (Київ)", "population": "3.400.000" },
-            { "city": "Lisbon (Lisboa)", "population": "2.870.000" },
-            { "city": "Ljubljana", "population": "550.000" },
-            { "city": "London", "population": "14.300.000" },
-            { "city": "Madrid", "population": "7.100.000" },
-            { "city": "Oslo", "population": "1.720.000" },
-            { "city": "Paris", "population": "11.300.000" },
-            { "city": "Podgorica (Подгорица)", "population": "230.000" },
-            { "city": "Prague (Praha)", "population": "2.160.000" },
-            { "city": "Riga", "population": "820.000" },
-            { "city": "Rome (Roma)", "population": "4.400.000" },
-            { "city": "Sarajevo", "population": "560.000" },
-            { "city": "Skopje (Скопје)", "population": "700.000" },
-            { "city": "Sofia (София)", "population": "1.680.000" },
-            { "city": "Stockholm", "population": "2.440.000" },
-            { "city": "Tallinn", "population": "530.000" },
-            { "city": "Tirana", "population": "890.000" },
-            { "city": "Vienna (Wien)", "population": "3.100.000" },
-            { "city": "Vilnius", "population": "730.000" },
-            { "city": "Warsaw (Warszawa)", "population": "3.100.000" },
-            { "city": "Zagreb", "population": "1.110.000" },
-            { "city": "Zürich", "population": "1.520.000" }
-        ];
-        const all = na.concat(eu);
-        all.sort();
+      const na = [
+        { city: "Atlanta", population: "6.144.000" },
+        { city: "Boston", population: "4.941.000" },
+        { city: "Chicago", population: "9.441.000" },
+        { city: "Dallas", population: "7.943.000" },
+        { city: "Denver", population: "3.000.000" },
+        { city: "El Paso", population: "1.050.000" },
+        { city: "Fort Worth", population: "7.943.000" },
+        { city: "Houston", population: "7.339.000" },
+        { city: "Los Angeles", population: "13.202.000" },
+        { city: "Miami", population: "6.091.000" },
+        { city: "New York", population: "19.617.000" },
+        { city: "Phoenix", population: "5.059.000" },
+        { city: "San Antonio", population: "2.650.000" },
+        { city: "San Francisco", population: "4.653.000" },
+        { city: "Washington", population: "6.385.000" },
+      ];
+      const eu = [
+        { city: "Amsterdam", population: "921.402" },
+        { city: "Andorra La Vella", population: "22.256" },
+        { city: "Athens (Αθήνα)", population: "3.153.000" },
+        { city: "Barcelona", population: "1.636.762" },
+        { city: "Belgrade (Београд)", population: "1.204.400" },
+        { city: "Berlin", population: "3.669.491" },
+        { city: "Bratislava", population: "475.503" },
+        { city: "Brussels", population: "1.220.967" },
+        { city: "Bucharest (București)", population: "1.795.000" },
+        { city: "Budapest", population: "1.728.000" },
+        { city: "Chişinǎu", population: "777.000" },
+        { city: "Copenhagen (København)", population: "655.304" },
+        { city: "Dublin (Baile Átha Cliath)", population: "1.173.179" },
+        { city: "Helsinki", population: "658.457" },
+        { city: "Istanbul (İstanbul)", population: "15.704.156" },
+        { city: "Kyiv (Київ)", population: "2.967.000" },
+        { city: "Lisbon (Lisboa)", population: "545.923" },
+        { city: "Ljubljana", population: "295.504" },
+        { city: "London", population: "9.304.016" },
+        { city: "Luxembourg", population: "133.000" },
+        { city: "Madrid", population: "3.365.630" },
+        { city: "Monaco", population: "38.000" },
+        { city: "Oslo", population: "709.037" },
+        { city: "Paris", population: "2.165.423" },
+        { city: "Podgorica (Подгорица)", population: "185.937" },
+        { city: "Prague (Praha)", population: "1.359.600" },
+        { city: "Pristina (Приштина)", population: "210.000" },
+        { city: "Riga", population: "602.347" },
+        { city: "Rome (Roma)", population: "2.781.000" },
+        { city: "San Marino", population: "34.000" },
+        { city: "Sarajevo", population: "343.000" },
+        { city: "Schaan", population: "25.000" },
+        { city: "Skopje (Скопје)", population: "526.502" },
+        { city: "Sofia (София)", population: "1.232.500" },
+        { city: "Stockholm", population: "978.770" },
+        { city: "Tallinn", population: "456.203" },
+        { city: "Tirana", population: "557.422" },
+        { city: "Vienna (Wien)", population: "1.993.000" },
+        { city: "Vilnius", population: "593.436" },
+        { city: "Warsaw (Warszawa)", population: "1.790.658" },
+        { city: "Zagreb", population: "767.131" },
+        { city: "Zürich", population: "443.037" },
+      ];
+      const all = na.concat(eu);
+      all.sort();
 
-        for (i = 0; i < all.length; i++) {
-            var opt = document.createElement("option");
-            opt.setAttribute("value", all.at(i).city);
-            opt.innerText = all.at(i).city;
-            document.getElementById("l-sel").appendChild(opt);
-            var opt = document.createElement("option");
-            opt.setAttribute("value", all.at(i).city);
-            opt.innerText = all.at(i).city;
-            document.getElementById("r-sel").appendChild(opt);
-        }
+      for (i = 0; i < all.length; i++) {
+        var opt = document.createElement("option");
+        opt.setAttribute("value", all.at(i).city);
+        opt.innerText = all.at(i).city;
+        document.getElementById("l-sel").appendChild(opt);
+        var opt = document.createElement("option");
+        opt.setAttribute("value", all.at(i).city);
+        opt.innerText = all.at(i).city;
+        document.getElementById("r-sel").appendChild(opt);
+      }
 
-        function randomize(side, num) {
-            var city;
-            if (num == 1) {
-                city = all.at(Math.floor(Math.random() * all.length)).city;
-            } else if (num == 2) {
-                city = eu.at(Math.floor(Math.random() * eu.length)).city;
-            } else {
-                city = na.at(Math.floor(Math.random() * na.length)).city;
-            }
-            document
-                .getElementById(side)
-                .setAttribute("src", "Images/" + city + ".jpg");
-            document.getElementById("city-" + side).innerText = city;
+      function randomize(side, num) {
+        var city;
+        if (num == 1) {
+          city = all.at(Math.floor(Math.random() * all.length)).city;
+        } else if (num == 2) {
+          city = eu.at(Math.floor(Math.random() * eu.length)).city;
+        } else {
+          city = na.at(Math.floor(Math.random() * na.length)).city;
         }
-        function set(sel_opt, side) {
-            var city = sel_opt.options[sel_opt.selectedIndex].value;
-            console.log(city);
-            document
-                .getElementById(side)
-                .setAttribute("src", "Images/" + city + ".jpg");
-            document.getElementById("city-" + side).innerText = city;
-            document.getElementById("pop-" + side).innerText = all.find(
-                (t) => t.city === city
-            ).population;
-        }
+        document
+          .getElementById(side)
+          .setAttribute("src", "Images/" + city + ".jpg");
+        document.getElementById("city-" + side).innerText = city;
+        document.getElementById("pop-" + side).innerText = all.find(
+          (t) => t.city === city
+        ).population;
+      }
+      function set(sel_opt, side) {
+        var city = sel_opt.options[sel_opt.selectedIndex].value;
+        console.log(city);
+        document
+          .getElementById(side)
+          .setAttribute("src", "Images/" + city + ".jpg");
+        document.getElementById("city-" + side).innerText = city;
+        document.getElementById("pop-" + side).innerText = all.find(
+          (t) => t.city === city
+        ).population;
+      }
     </script>
-</body>
-
+  </body>
 </html>

@@ -146,6 +146,9 @@
           .getElementById(side)
           .setAttribute("src", "Images/" + city + ".jpg");
         document.getElementById("city-" + side).innerText = city;
+        document.getElementById("pop-" + side).innerText = all.find(
+          (t) => t.city === city
+        ).population;
       }
       function set(sel_opt, side) {
         var city = sel_opt.options[sel_opt.selectedIndex].value;
