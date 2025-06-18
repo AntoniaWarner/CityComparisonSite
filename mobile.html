@@ -14,7 +14,7 @@
     <div class="content">
       <div class="threeParts">
         <div class="map">
-          <img src="Images/Amsterdam.png" alt="" id="left" />
+          <img src="Images/Amsterdam.jpg" alt="" id="left" />
         </div>
         <div class="menu">
           <h3>Left</h3>
@@ -35,7 +35,7 @@
           <h4 id="pop-left">921.402</h4>
         </div>
         <div class="map">
-          <img src="Images/Atlanta.png" alt="" id="right" />
+          <img src="Images/Atlanta.jpg" alt="" id="right" />
         </div>
         <div class="menu">
           <h3>Right</h3>
@@ -137,7 +137,7 @@
         }
         document
           .getElementById(side)
-          .setAttribute("src", "Images/" + city + ".png");
+          .setAttribute("src", "Images/" + city + ".jpg");
         document.getElementById("city-" + side).innerText = city;
       }
       function set(sel_opt, side) {
@@ -145,7 +145,7 @@
         console.log(city);
         document
           .getElementById(side)
-          .setAttribute("src", "Images/" + city + ".png");
+          .setAttribute("src", "Images/" + city + ".jpg");
         document.getElementById("city-" + side).innerText = city;
         document.getElementById("pop-" + side).innerText = all.find(
           (t) => t.city === city

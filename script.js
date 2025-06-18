@@ -39,7 +39,7 @@ const eu = [
   { city: "Podgorica (Подгорица)", population: "185.937" },
   { city: "Prague (Praha)", population: "1.359.600" },
   { city: "Riga", population: "602.347" },
-  { city: "Rome", population: "2.781.000" },
+  { city: "Rome (Roma)", population: "2.781.000" },
   { city: "Sarajevo", population: "343.000" },
   { city: "Skopje (Скопје)", population: "526.502" },
   { city: "Sofia (София)", population: "1.232.500" },
@@ -61,27 +61,31 @@ for (i = 0; i < all.length; i++) {
   opt.innerText = all.at(i).city;
   document.getElementById("l-sel").appendChild(opt);
   var opt = document.createElement("option");
-  opt.setAttribute("value", all.at(i));
-  opt.innerText = all.at(i);
+  opt.setAttribute("value", all.at(i).city);
+  opt.innerText = all.at(i).city;
   document.getElementById("r-sel").appendChild(opt);
 }
 
 function randomize(side, num) {
   var city;
   if (num == 1) {
-    city = all.at(Math.floor(Math.random() * all.length));
+    city = all.at(Math.floor(Math.random() * all.length)).city;
   } else if (num == 2) {
-    city = eu.at(Math.floor(Math.random() * eu.length));
+    city = eu.at(Math.floor(Math.random() * eu.length)).city;
   } else {
-    city = na.at(Math.floor(Math.random() * na.length));
+    city = na.at(Math.floor(Math.random() * na.length)).city;
   }
-  document.getElementById(side).setAttribute("src", "Images/" + city + ".png");
+  document
+    .getElementById(side)
+    .setAttribute("src", "Images/" + city + ".jpg");
   document.getElementById("city-" + side).innerText = city;
 }
 function set(sel_opt, side) {
   var city = sel_opt.options[sel_opt.selectedIndex].value;
   console.log(city);
-  document.getElementById(side).setAttribute("src", "Images/" + city + ".png");
+  document
+    .getElementById(side)
+    .setAttribute("src", "Images/" + city + ".jpg");
   document.getElementById("city-" + side).innerText = city;
   document.getElementById("pop-" + side).innerText = all.find(
     (t) => t.city === city
